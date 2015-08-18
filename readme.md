@@ -55,6 +55,30 @@ kanasort < input.txt > output.txt
 
 Sorts standard input line by line.
 
+## Default transforms
+
+The following are the transforms included by default (in order of processing):
+
+1. small to big kana (ぁ→あ)
+2. voiced to unvoiced (が→か)
+3. half-voiced to unvoiced (ぱ→は)
+4. katakana to hiragana (サ→さ)
+5. iteration mark variants (ヾ→ゝ)
+6. chōon to corresponding kana (かー→かあ)
+7. iteration mark application (こゝ→ここ)
+
+In order, the weight priority of each:
+
+1. voiced to unvoiced
+2. half-voiced to voiced
+3. chōon to corresponding kana (reversed)
+4. small to big kana (reversed)
+5. iteration mark variants (reversed)
+6. iteration mark application (reversed)
+7. katakana to hiragana
+
+Transformed matches are ordered first (and untransformed matches are ordered last) on transforms marked as 'reversed'.
+
 ## License
 
 MIT
@@ -66,3 +90,4 @@ my private hobby project sorting needs and for being the inspiration for this
 module.
 
 * [JIS X 4061-1996](http://kikakurui.com/x4/X4061-1996-01.html)
+* [MDN: `Intl`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Intl) ([ECMAScript internationalization API spec](http://www.ecma-international.org/ecma-402/1.0/))
