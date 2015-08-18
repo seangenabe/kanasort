@@ -10,7 +10,7 @@ Sort Japanese text.
 
 This module was built in order to support sorting of strings containing
 Japanese text. It can't sort kanji though, ideally one should already have the
-corresponding [https://en.wikipedia.org/wiki/Furigana](readings) at hand.
+corresponding [readings](https://en.wikipedia.org/wiki/Furigana) at hand.
 
 This module partially follows the specifications of JIS X 4061 as seen on [Wikipedia](https://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E8%AA%9E%E6%96%87%E5%AD%97%E5%88%97%E7%85%A7%E5%90%88%E9%A0%86%E7%95%AA).
 
