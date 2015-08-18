@@ -12,10 +12,10 @@ This module was built in order to support sorting of strings containing
 Japanese text. It can't sort kanji though, ideally one should already have the
 corresponding [https://en.wikipedia.org/wiki/Furigana](readings) at hand.
 
-This module partially follows the specifications of JIS X 4061 as seen on [https://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E8%AA%9E%E6%96%87%E5%AD%97%E5%88%97%E7%85%A7%E5%90%88%E9%A0%86%E7%95%AA](Wikipedia).
+This module partially follows the specifications of JIS X 4061 as seen on [Wikipedia](https://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E8%AA%9E%E6%96%87%E5%AD%97%E5%88%97%E7%85%A7%E5%90%88%E9%A0%86%E7%95%AA).
 
 The API is ready to use as-is, but is also
-[readme-customizable-api](fully customizable).
+[fully customizable](readme-customizable-api.md).
 
 The `--harmony` flag might be required for proper ES2015 string support on
 node.js 0.11-0.12.
@@ -32,7 +32,7 @@ Japanese string comparison.
 
 ### kanasort.compare(a: string, b: string)
 
-A comparison function ([http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.sort](`comparefn`))
+A comparison function ([`comparefn`](http://www.ecma-international.org/ecma-262/6.0/#sec-array.prototype.sort))
 using the default Japanese string transforms that returns:
 
 * A negative value if a < b
@@ -48,9 +48,11 @@ For further customization, see the
 
 Usage:
 
-`kanasort < in.txt > out.txt`
+```bash
+kanasort < input.txt > output.txt
+```
 
-Sorts standard input.
+Sorts standard input line by line.
 
 ## License
 
@@ -58,8 +60,8 @@ MIT
 
 ## See also
 
-Thanks to [https://github.com/minodisk/sorter](minodisk/sorter) for supporting
+Thanks to [minodisk/sorter](https://github.com/minodisk/sorter) for supporting
 my private hobby project sorting needs and for being the inspiration for this
 module.
 
-* [http://kikakurui.com/x4/X4061-1996-01.html](JIS X 4061-1996)
+* [JIS X 4061-1996](http://kikakurui.com/x4/X4061-1996-01.html)
