@@ -7,7 +7,7 @@
     "kanasort": "bin/kanasort"
   },
   "scripts": {
-    "test": "node node_modules/mocha/bin/_mocha lib/test --harmony",
+    "test": "node --harmony node_modules/mocha/bin/_mocha lib/test",
     "start": "node --harmony .",
     "compile": "babel -d lib --source-maps --optional runtime --stage 0 src",
     "watch": "babel -w -d lib --source-maps --optional runtime --stage 0 src",
