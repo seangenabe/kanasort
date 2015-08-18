@@ -3,7 +3,7 @@
 Sort Japanese text.
 
 [![npm](https://img.shields.io/npm/v/kanasort.svg?style=flat-square)](https://www.npmjs.com/package/kanasort)
-[![Build Status](https://img.shields.io/travis/seangenabe/kanasort/master.svg?style=flat-square)](https://travis-ci.org/seangenabe/kanasort.svg?branch=master)
+[![Build Status](https://img.shields.io/travis/seangenabe/kanasort/master.svg?style=flat-square)](https://travis-ci.org/seangenabe/kanasort)
 [![Dependency Status](https://img.shields.io/david/seangenabe/kanasort.svg?style=flat-square)](https://david-dm.org/seangenabe/kanasort)
 [![devDependency Status](https://img.shields.io/david/dev/seangenabe/kanasort.svg?style=flat-square)](https://david-dm.org/seangenabe/symbol-enum#info=devDependencies)
 
