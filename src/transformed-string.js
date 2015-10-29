@@ -1,5 +1,12 @@
 
 import TransformedCharacter from './transformed-character'
+import VoicedTransform from './transforms/voiced-transform'
+import HalfVoicedTransform from './transforms/half-voiced-transform'
+import KataToHiraTransform from './transforms/kata-to-hira-transform'
+import LongSoundMarkTransform from './transforms/long-sound-mark-transform'
+import SmallToBigTransform from './transforms/small-to-big-transform'
+import IterationMarkVariationsTransform from './transforms/iteration-mark-variations-transform'
+import IterationMarkTransform from './transforms/iteration-mark-transform'
 
 export default class TransformedString {
 
@@ -41,6 +48,25 @@ export default class TransformedString {
       this._value = value
     }
     return value
+  }
+
+  serialize() {
+    var value = this.value
+    var ぁ = SmallToBigTransform,
+      ﾞ = VoicedTransform,
+      ﾟ = HalfVoicedTransform,
+      ゞ = IterationMarkVariationsTransform,
+      ゝ = IterationMarkTransform,
+      ー = LongSoundMarkTransform,
+      カ = KataToHiraTransform
+    this.transforms = [
+      // JIS X 4061, #2
+      ぁ, ﾞ, ﾟ, カ, ゞ,
+      // #3
+      ー,
+      // #4
+      ゝ
+    ]
   }
 
 }

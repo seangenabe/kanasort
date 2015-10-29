@@ -79,6 +79,10 @@ In order, the weight priority of each:
 
 Transformed matches are ordered first (and untransformed matches are ordered last) on transforms marked as 'reversed'.
 
+## Todo
+
+JSDoc all of this so we don't have to scratch our heads.
+
 ## License
 
 MIT

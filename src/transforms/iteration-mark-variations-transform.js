@@ -10,7 +10,7 @@ export default class IterationMarkVariationsTransform extends Transform {
   constructor() {
     super()
     this.untransformedWeight = 0
-    this.transformedWeight = 1
+    this.transformedWeight = -1
   }
 
   transform(wc) {

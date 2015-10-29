@@ -16,7 +16,7 @@ export default class VoicedTransform extends Transform {
   }
 
   transform(wc) {
-    var value = voicedMap.get(wc.value)
+    let value = voicedMap.get(wc.value)
     if (value) {
       wc.value = value
       wc.weights.set(VoicedTransform, this.transformedWeight)

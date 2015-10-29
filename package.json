@@ -1,16 +1,17 @@
 {
   "name": "kanasort",
-  "version": "1.0.1-0",
+  "version": "1.0.1-2",
   "description": "Sort Japanese text.",
-  "main": "lib/kanasort.js",
+  "main": "lib",
   "bin": {
     "kanasort": "bin/kanasort"
   },
   "scripts": {
-    "test": "node --harmony node_modules/mocha/bin/_mocha lib/test",
+    "test": "babel-node node_modules/mocha/bin/_mocha src/test",
+    "test:lib": "mocha lib/test",
     "start": "node --harmony .",
-    "compile": "babel -d lib --source-maps --optional runtime --stage 0 src",
-    "watch": "babel -w -d lib --source-maps --optional runtime --stage 0 src",
+    "compile": "babel -d lib src",
+    "watch": "babel -w -d lib src",
     "prepublish": "npm run compile"
   },
   "repository": {
@@ -31,15 +32,22 @@
   },
   "homepage": "https://github.com/seangenabe/kanasort#readme",
   "dependencies": {
-    "babel-runtime": "^5.8.20",
+    "babel-runtime": "^5.8.29",
     "debug": "^2.2.0",
     "lru-cache": "^2.6.5",
     "mkc": "^1.1.0",
     "split": "^1.0.0"
   },
   "devDependencies": {
-    "babel": "^5.8.21",
+    "babel": "^5.8.29",
     "chai": "^3.2.0",
     "mocha": "^2.2.5"
+  },
+  "babel": {
+    "sourceMaps": true,
+    "stage": 0,
+    "optional": [
+      "runtime"
+    ]
   }
 }

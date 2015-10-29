@@ -14,11 +14,10 @@ export default class HalfVoicedTransform extends Transform {
   }
 
   transform(wc) {
-    var weight = this.untransformedWeight,
-      value = map.get(wc.value)
-    if (value) {
+    let unvoiced = map.get(wc.value)
+    if (unvoiced) {
       wc.weights.set(HalfVoicedTransform, this.transformedWeight)
-      wc.value = value
+      wc.value = unvoiced
     }
     else {
       wc.weights.set(HalfVoicedTransform, this.untransformedWeight)

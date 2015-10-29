@@ -10,7 +10,7 @@ export default class IterationMarkTransform extends Transform {
   constructor() {
     super()
     this.untransformedWeight = 0
-    this.transformedWeight = 1
+    this.transformedWeight = -1
   }
 
   transform(wc) {
@@ -18,11 +18,14 @@ export default class IterationMarkTransform extends Transform {
       this.prevChar &&
       isKana(this.prevChar)) {
 
-      wc.value = prevChar
+      wc.value = this.prevChar
       wc.weights.set(IterationMarkTransform, this.transformedWeight)
     }
     else {
       wc.weights.set(IterationMarkTransform, this.untransformedWeight)
+    }
+    if (wc.value) {
+      this.prevChar = wc.value
     }
   }
 

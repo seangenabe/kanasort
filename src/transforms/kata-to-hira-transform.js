@@ -17,14 +17,17 @@ export default class KataToHiraTransform extends Transform {
   }
 
   transform(wc) {
-    var codePoint = wc.value.codePointAt(0)
-    if (KATA_START <= codePoint && codePoint <= KATA_END) {
+    do {
+      if (!wc.value) { break }
+
+      let codePoint = wc.value.codePointAt(0)
+      if (!(KATA_START <= codePoint && codePoint <= KATA_END)) { break }
+
       wc.value = String.fromCodePoint(codePoint - KATA_START + HIRA_START)
       wc.weights.set(KataToHiraTransform, this.transformedWeight)
-    }
-    else {
-      wc.weights.set(KataToHiraTransform, this.untransformedWeight)
-    }
+      return
+    } while (false)
+    wc.weights.set(KataToHiraTransform, this.untransformedWeight)
   }
 
 }

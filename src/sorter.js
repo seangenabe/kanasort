@@ -2,11 +2,9 @@
 import LRUCache from 'lru-cache'
 import MultiKeyCache from 'mkc'
 import TransformedString from './transformed-string'
-import split from 'split'
 import {EOL} from 'os'
 import util from 'util'
 // transforms
-export WeightedCharacterTransform from './transforms/transform'
 import VoicedTransform from './transforms/voiced-transform'
 import HalfVoicedTransform from './transforms/half-voiced-transform'
 import KataToHiraTransform from './transforms/kata-to-hira-transform'
@@ -18,34 +16,8 @@ import IterationMarkTransform from './transforms/iteration-mark-transform'
 export class Sorter {
 
   constructor() {
-    var ぁ = SmallToBigTransform,
-      ﾞ = VoicedTransform,
-      ﾟ = HalfVoicedTransform,
-      ゞ = IterationMarkVariationsTransform,
-      ゝ = IterationMarkTransform,
-      ー = LongSoundMarkTransform,
-      カ = KataToHiraTransform
-    this.transforms = [
-      // JIS X 4061, #2
-      ぁ, ﾞ, ﾟ, カ, ゞ,
-      // #3
-      ー,
-      // #4
-      ゝ
-    ]
-    this.weightPriority = [
-      // #6.1
-      ﾞ, ﾟ,
-      // #6.2
-      ー, ぁ, ゞ, ゝ,
-      // #6.3
-      カ
-    ]
-    // #6.2
-    ー.transformedWeight = -1
-    ぁ.transformedWeight = -1
-    ゞ.transformedWeight = -1
-    ゝ.transformedWeight = -1
+    this.transforms = Sorter.defaultTransforms
+    this.weightPriority = Sorter.defaultWeightPriority
 
     this.initializeTransformCache()
     this.compareCache = new MultiKeyCache({
@@ -62,11 +34,13 @@ export class Sorter {
   }
 
   _transform(str) {
+    if (typeof str !== 'string') { throw new TypeError("str must be a string") }
     return new TransformedString(str, this.transforms)
   }
 
   // Returns a transformed string with weighted characters.
   transform(str) {
+    if (typeof str !== 'string') { throw new TypeError("str must be a string") }
     var cache = this.transformCache
     if (!cache) return this._transform(str)
     var value = cache.get(str)
@@ -77,12 +51,16 @@ export class Sorter {
   }
 
   _compare(a, b) {
+    if (typeof a !== 'string') { throw new TypeError("a must be a string") }
+    if (typeof b !== 'string') { throw new TypeError("b must be a string") }
     var at = this.transform(a),
       bt = this.transform(b)
     return this.compareTransformedStrings(at, bt)
   }
 
   compare(a, b) {
+    if (typeof a !== 'string') { throw new TypeError("a must be a string") }
+    if (typeof b !== 'string') { throw new TypeError("b must be a string") }
     if (a === b) return 0
     var cache = this.compareCache
     if (!cache) return this._compare(a, b)
@@ -96,6 +74,12 @@ export class Sorter {
   }
 
   compareTransformedStrings(a, b) {
+    if (!(a instanceof TransformedString)) {
+      throw new TypeError("a must be a TransformedString")
+    }
+    if (!(b instanceof TransformedString)) {
+      throw new TypeError("b must be a TransformedString")
+    }
     var ai = a[Symbol.iterator](),
       bi = b[Symbol.iterator](),
       ar, br
@@ -135,6 +119,8 @@ export class Sorter {
   }
 
   compareCharacterWeights(a, b) {
+    if (!(a instanceof Map)) { throw new TypeError("a must be a Map") }
+    if (!(b instanceof Map)) { throw new TypeError("b must be a Map") }
     for (let transform of this.weightPriority) {
       var aw = a.get(transform) || 0
       var bw = b.get(transform) || 0
@@ -153,27 +139,31 @@ export class Sorter {
   }
 
 }
-
-export function console() {
-  var lines = []
-  process.stdin.pipe(split())
-  .on('data', function(line) {
-    lines.push(line)
-  })
-  .on('end', function() {
-    sort(lines)
-    process.stdout.write(lines.join(EOL))
-  })
-}
-
-export function compare(a, b) {
-  return Sorter.default.compare(a, b)
-}
-
-export default function sort(arr) {
-  return Array.prototype.sort.call(arr, compare)
-}
-
-if (require && require.main === module) {
-  console()
-}
+Object.defineProperty(Sorter, 'defaultTransforms', {
+  value: [
+    // JIS X 4061, #2
+    SmallToBigTransform,
+    VoicedTransform,
+    HalfVoicedTransform,
+    KataToHiraTransform,
+    IterationMarkVariationsTransform,
+    // #3
+    LongSoundMarkTransform,
+    // #4
+    IterationMarkTransform
+  ]
+})
+Object.defineProperty(Sorter, 'defaultWeightPriority', {
+  value: [
+    // #6.1
+    VoicedTransform,
+    HalfVoicedTransform,
+    // #6.2
+    LongSoundMarkTransform,
+    SmallToBigTransform,
+    IterationMarkVariationsTransform,
+    IterationMarkTransform,
+    // #6.3
+    KataToHiraTransform
+  ]
+})

@@ -14,9 +14,10 @@ export default class LimitComparisonToKanaTransform extends Transform {
   }
 
   transform(wc) {
-    if (!kana.has(char)) {
+    if (!kana.has(wc.value)) {
       wc.value = null
     }
+    // weight does not matter anymore even if the character is removed
     wc.weights.set(LimitComparisonToKanaTransform, 0)
   }
 
