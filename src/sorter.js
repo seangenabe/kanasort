@@ -13,7 +13,7 @@ import SmallToBigTransform from './transforms/small-to-big-transform'
 import IterationMarkVariationsTransform from './transforms/iteration-mark-variations-transform'
 import IterationMarkTransform from './transforms/iteration-mark-transform'
 
-export class Sorter {
+export default class Sorter {
 
   constructor() {
     this.transforms = Sorter.defaultTransforms
