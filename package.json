@@ -1,6 +1,6 @@
 {
   "name": "kanasort",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Sort Japanese text.",
   "main": "lib",
   "bin": {
