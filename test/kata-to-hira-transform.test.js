@@ -18,6 +18,9 @@ test('should transform ok by default', t => {
 })
 
 test('should expect null', t => {
-  let x = new TransformedString('abc', [new RemoveBees(), new KataToHiraTransform()])
+  let x = new TransformedString(
+    'abc',
+    [new RemoveBees(), new KataToHiraTransform()]
+  )
   t.is(x.value, 'ac')
 })
