@@ -73,24 +73,11 @@ An instance is constructed for each string.
 
 WeightedCharacterTransform is comparable to a `streams.Transform` in object
 mode, processing TransformedCharacter instances. Although, the transform
-function changes the state of TransformedCharacter in-place, and is synchronous
-in nature.
+function is synchronous in nature.
 
 #### #transform(tc: TransformedCharacter)
 
-Transforms the specified `TransformedCharacter` instance. Implementors
-overriding this method should:
-* Do one of the following to `tc.value`:
-  * Nothing, leave the current value in place
-  * Assign a new value
-  * Set to null, this means the character is removed from the string and should
-    be skipped
-* Assign a weight to tc.weights using:
-
-  `tc.weights.set(MyTransformClass, weight)`
-
-  where MyTransformClass is the class constructor distinguishing the transform,
-  and weight is a number.
-  It is recommended to always assign a weight when called. If a transform is
-  included in the transforms but a weight isn't assigned, comparison for the
-  transform will be skipped.
+Returns an instruction that instructs how to transform the specified `TransformedCharacter` instance:
+* `null` or `undefined`: No transformation should be done to the character.
+* [str: string, weight: number]: The character should be transform3d to `str` with `weight` weight.
+* [null]: The character should be discarded.
