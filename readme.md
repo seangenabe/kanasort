@@ -69,13 +69,13 @@ The following are the transforms included by default (in order of processing):
 
 In order, the weight priority of each:
 
-1. voiced to unvoiced
-2. half-voiced to voiced
+1. unvoiced < half-voiced
+2. unvoiced < voiced
 3. chōon to corresponding kana (reversed)
 4. small to big kana (reversed)
 5. iteration mark variants (reversed)
 6. iteration mark application (reversed)
-7. katakana to hiragana
+7. hiragana < katakana
 
 Transformed matches are ordered first (and untransformed matches are ordered last) on transforms marked as 'reversed'.
 

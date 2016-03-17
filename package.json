@@ -34,6 +34,7 @@
     "split": "^1.0.0"
   },
   "devDependencies": {
+    "array-shuffle": "^1.0.0",
     "ava": "^0.13.0"
   },
   "ava": {
@@ -42,7 +43,6 @@
     ],
     "source": [
       "lib/**.js"
-    ],
-    "failFast": true
+    ]
   }
 }

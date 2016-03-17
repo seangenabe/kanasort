@@ -10,11 +10,11 @@ const RemoveBees = require('./remove-bees')
 
 test('should transform ok by default', t => {
   let r = new IterationMarkTransform()
-  let x = new TransformedString('あゝイゝ%ゝ', [r])
-  t.is(x.value, 'ああイイ%ゝ')
+  let x = new TransformedString('あゝイゝへゝ%ゝ', [r])
+  t.is(x.value, 'ああイイへへ%ゝ')
   t.same(
     x.items.map(tc => tc.weights.get(r)),
-    [0, -1, 0, -1, 0, 0]
+    [0, -1, 0, -1, 0, -1, 0, 0]
   )
 })
 
