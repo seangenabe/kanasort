@@ -20,8 +20,8 @@ test('should transform ok by default', t => {
 
 test('should expect null', t => {
   let x = new TransformedString(
-    'abc',
+    'あbゝ',
     [new RemoveBees(), new IterationMarkTransform()]
   )
-  t.is(x.value, 'ac')
+  t.is(x.value, 'ああ')
 })
