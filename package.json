@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "ava",
+    "test:watch": "ava --watch",
     "start": "node ."
   },
   "repository": {
@@ -34,5 +35,14 @@
   },
   "devDependencies": {
     "ava": "^0.13.0"
+  },
+  "ava": {
+    "files": [
+      "test/*.test.js"
+    ],
+    "source": [
+      "lib/**.js"
+    ],
+    "failFast": true
   }
 }
