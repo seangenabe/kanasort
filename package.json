@@ -34,7 +34,7 @@
     "node": ">=4"
   },
   "dependencies": {
-    "lru-cache": "^2.6.5",
+    "lru-cache": "^4.0.0",
     "mkc": "^1.1.0",
     "split": "^1.0.0",
     "stream-combiner": "^0.2.2"
