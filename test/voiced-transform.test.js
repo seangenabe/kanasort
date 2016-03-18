@@ -10,10 +10,10 @@ const RemoveBees = require('./remove-bees')
 test('should transform ok by default', t => {
   let r = new VoicedTransform()
   let x = new TransformedString('あがはばぱ', [r])
-  t.is(x.value, 'あがははぱ') // transformed hira BA -> HA
+  t.is(x.value, 'あかははぱ') // transformed hira BA -> HA
   t.same(
     x.items.map(tc => tc.weights.get(r)),
-    [0, 0, 0, 1, 0]
+    [0, 1, 0, 1, 0]
   )
 })
 

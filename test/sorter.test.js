@@ -27,7 +27,7 @@ test('static properties', t => {
 
 test('compare voiced forms', t => {
   let sorter = new Sorter()
-  let items = 'はひびぴぶぷ'.split('')
+  const items = 'はひびぴぶぷ'.split('')
   for (let i = 0; i < 20; i++) {
     let testItems = shuffle(items)
     testItems.sort(Sorter.prototype.compare.bind(sorter))
@@ -37,7 +37,7 @@ test('compare voiced forms', t => {
 
 test('compare kana-related symbols', t => {
   let sorter = new Sorter()
-  let items = 'あー・あぁ・あゝ・ああ'.split('・')
+  const items = 'あー・あぁ・あゝ・ああ'.split('・')
   for (let i = 0; i < 20; i++) {
     let testItems = shuffle(items)
     testItems.sort(Sorter.prototype.compare.bind(sorter))
@@ -47,7 +47,7 @@ test('compare kana-related symbols', t => {
 
 test('compare hiragana < katakana', t => {
   let sorter = new Sorter()
-  let items = 'さサしシ'.split('')
+  const items = 'さサしシ'.split('')
   for (let i = 0; i < 20; i++) {
     let testItems = shuffle(items)
     testItems.sort(Sorter.prototype.compare.bind(sorter))
@@ -57,7 +57,7 @@ test('compare hiragana < katakana', t => {
 
 test('compare all the things', t => {
   let sorter = new Sorter()
-  let items =
+  const items =
     'の・はー・はぁ・はあ・はゝ・ハー・ば・バ・ぱ・パ'.split('・')
   for (let i = 0; i < 20; i++) {
     let testItems = shuffle(items)
