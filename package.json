@@ -27,6 +27,12 @@
     "url": "https://github.com/seangenabe/kanasort/issues"
   },
   "homepage": "https://github.com/seangenabe/kanasort#readme",
+  "directories": {
+    "lib": "./lib"
+  },
+  "engines": {
+    "node": ">=4"
+  },
   "dependencies": {
     "lru-cache": "^2.6.5",
     "mkc": "^1.1.0",
