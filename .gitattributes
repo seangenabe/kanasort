@@ -1,2 +1,2 @@
 * text=auto
-bin/ -text
+bin/* -text

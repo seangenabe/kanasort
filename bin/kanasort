@@ -1,2 +1,7 @@
-#!/usr/bin/env node --harmony
-require('..').console()
+#!/usr/bin/env node
+require('stream-combiner')(
+  process.stdin,
+  require('..').stream(),
+  process.stdout
+)
+.on('error', function() { process.exit(1) })
