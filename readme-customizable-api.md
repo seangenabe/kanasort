@@ -13,26 +13,15 @@ in the process assigns a weight to each character. When comparing two strings,
 they are transformed first, then evaluated character-by-character while taking
 into consideration the weights assigned by the `Transform` instances.
 
-#### #constructor()
+#### #constructor(transforms, opts)
 
 Initializes a new instance of `Sorter`.
-
-The constructor does not have any options, but after calling the constructor,
-you can modify the `Sorter#transforms` and `Sorter#weightPriority` arrays and
-the caches as you see fit. Note that this is the only chance you'll get to do
-so, once any transform is made, any changes to these properties will lead to
-undefined (mostly caching) behavior.
-
-#### #transforms: Type[]
-
-An array of class constructors that we will go through
-in order when transforming a string.
-
-#### #weightPriority: Type[]
-
-An array of the same class constructors as `#transforms`. In order, this
-is the priority of evaluation of weights each transformer will assign to each
-character.
+* `transforms`
+  * `transformsfn(str: string): Transform[]`:
+  * `weights: number[]`
+* `opts`
+  * `transformCache: object`: LRUCache options
+  * `compareCache: object`: MKC options
 
 #### #transform(str: string): TransformedString
 
@@ -41,7 +30,7 @@ Cache-enabled.
 
 #### #compare(a: string, b: string): number
 
-Compares two strings.
+Compares two strings. Cache-enabled.
 
 #### Sorter.default
 
@@ -71,13 +60,9 @@ lesser weight goes before a greater weight.
 
 An instance is constructed for each string.
 
-WeightedCharacterTransform is comparable to a `streams.Transform` in object
-mode, processing TransformedCharacter instances. Although, the transform
-function is synchronous in nature.
-
 #### #transform(tc: TransformedCharacter)
 
 Returns an instruction that instructs how to transform the specified `TransformedCharacter` instance:
 * `null` or `undefined`: No transformation should be done to the character.
-* [str: string, weight: number]: The character should be transform3d to `str` with `weight` weight.
-* [null]: The character should be discarded.
+* Array: [str: string, weight: number]: The character should be transformed to `str` with `weight` weight.
+* Array: [null]: The character should be discarded.

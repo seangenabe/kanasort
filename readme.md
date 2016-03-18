@@ -18,12 +18,9 @@ This module partially follows the specifications of JIS X 4061 as seen on [Wikip
 The API is ready to use as-is, but is also
 [fully customizable](readme-customizable-api.md).
 
-The `--harmony` flag might be required for proper ES2015 string support on
-node.js 0.11-0.12.
-
 ## API
 
-`var kanasort = require('kanasort')` or `import kanasort from 'kanasort'`
+`const kanasort = require('kanasort')`
 
 ### kanasort(arr: string[]) : string[]
 
