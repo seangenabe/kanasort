@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "array-shuffle": "^1.0.0",
-    "ava": "^0.13.0"
+    "ava": "^0.14.0"
   },
   "ava": {
     "files": [
