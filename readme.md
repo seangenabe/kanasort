@@ -21,7 +21,9 @@ The API is ready to use as-is, but is also
 
 ## API
 
-`const kanasort = require('kanasort')`
+```javascript
+const kanasort = require('kanasort')
+```
 
 ### kanasort(arr: string[]) : string[]
 
