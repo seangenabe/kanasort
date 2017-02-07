@@ -5,7 +5,7 @@ Sort Japanese text.
 [![npm](https://img.shields.io/npm/v/kanasort.svg?style=flat-square)](https://www.npmjs.com/package/kanasort)
 [![Build Status](https://img.shields.io/travis/seangenabe/kanasort/master.svg?style=flat-square)](https://travis-ci.org/seangenabe/kanasort)
 [![Dependency Status](https://img.shields.io/david/seangenabe/kanasort.svg?style=flat-square)](https://david-dm.org/seangenabe/kanasort)
-[![devDependency Status](https://img.shields.io/david/dev/seangenabe/kanasort.svg?style=flat-square)](https://david-dm.org/seangenabe/symbol-enum#info=devDependencies)
+[![devDependency Status](https://img.shields.io/david/dev/seangenabe/kanasort.svg?style=flat-square)](https://david-dm.org/seangenabe/kanasort#info=devDependencies)
 [![node](https://img.shields.io/node/v/kanasort.svg?style=flat-square)](https://nodejs.org/en/download/)
 
 ## Overview
@@ -21,7 +21,9 @@ The API is ready to use as-is, but is also
 
 ## API
 
-`const kanasort = require('kanasort')`
+```javascript
+const kanasort = require('kanasort')
+```
 
 ### kanasort(arr: string[]) : string[]
 
