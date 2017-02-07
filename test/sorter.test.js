@@ -18,8 +18,8 @@ test('compare', t => {
 })
 
 test('static properties', t => {
-  t.ok(Sorter.default === Sorter.default)
-  t.ok(Sorter.defaultTransforms === Sorter.defaultTransforms)
+  t.truthy( Sorter.default === 'function')
+  t.truthy(Sorter.defaultTransforms === Sorter.defaultTransforms)
 })
 
 // Sorting tests

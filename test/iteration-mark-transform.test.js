@@ -12,7 +12,7 @@ test('should transform ok by default', t => {
   let r = new IterationMarkTransform()
   let x = new TransformedString('あゝイゝへゝ%ゝ', [r])
   t.is(x.value, 'ああイイへへ%ゝ')
-  t.same(
+  t.deepEqual(
     x.items.map(tc => tc.weights.get(r)),
     [0, -1, 0, -1, 0, -1, 0, 0]
   )

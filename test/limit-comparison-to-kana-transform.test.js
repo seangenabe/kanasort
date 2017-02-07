@@ -12,7 +12,7 @@ test('should transform ok by default', t => {
   let r = new LimitComparisonToKanaTransform()
   let x = new TransformedString('あa%^ん', [r])
   t.is(x.value, 'あん')
-  t.same(
+  t.deepEqual(
     x.items.map(tc => tc.weights.get(r)),
     [0, 0, 0, 0, 0]
   )

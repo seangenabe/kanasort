@@ -19,8 +19,8 @@ test('constructor', t => {
   let b = new RemoveBees()
   let str = new TransformedString('foo', [b])
   t.is(str.original, 'foo')
-  t.same(str.items, [])
-  t.same(str.transforms, [b])
+  t.deepEqual(str.items, [])
+  t.deepEqual(str.transforms, [b])
 })
 
 test('iterator and transformation order', t => {
@@ -40,12 +40,12 @@ test('iterator and transformation order', t => {
   iteration = i.next()
   t.false(iteration.done)
   t.is(str.items[0], tc = iteration.value)
-  t.ok(str.items[1] === undefined)
+  t.is(str.items[1], undefined)
   t.is(tc.original, 'a')
   t.is(tc.weights.get(b1), 0)
   t.is(tc.weights.get(r), 7)
   t.is(tc.weights.get(b2), 0)
-  t.ok(tc.value == null)
+  t.truthy(tc.value == null)
 
   // iteration 1
   iteration = i.next()
@@ -53,7 +53,7 @@ test('iterator and transformation order', t => {
   t.is(str.items[1], tc = iteration.value)
   t.is(tc.original, 'b')
   t.is(tc.weights.get(r), 0)
-  t.ok(tc.value == null)
+  t.truthy(tc.value == null)
 
   // iteration 2
   iteration = i.next()

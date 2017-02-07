@@ -11,7 +11,7 @@ test('should transform ok by default', t => {
   let r = new KataToHiraTransform()
   let x = new TransformedString('アカサタナいハマヤラワヰヱン', [r])
   t.is(x.value, 'あかさたないはまやらわゐゑん')
-  t.same(
+  t.deepEqual(
     x.items.map(tc => tc.weights.get(r)),
     [1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1]
   )

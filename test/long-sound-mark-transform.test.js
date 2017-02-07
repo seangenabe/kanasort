@@ -12,7 +12,7 @@ test('should transform ok by default', t => {
   let r = new LongSoundMarkTransform()
   let x = new TransformedString('ーかーきーくーけーこーサーaー', [r])
   t.is(x.value, 'ーかあきいくうけえこおサアaー')
-  t.same(
+  t.deepEqual(
     x.items.map(tc => tc.weights.get(r)),
     [0, 0, -1, 0, -1, 0, -1, 0, -1, 0, -1, 0, -1, 0, 0]
   )

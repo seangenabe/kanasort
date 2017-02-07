@@ -7,5 +7,5 @@ test(t => {
   let c = new TransformedCharacter('a')
   t.is(c.original, 'a')
   t.is(c.value, 'a')
-  t.ok(c.weights.constructor.name === 'Map')
+  t.truthy(c.weights.constructor.name === 'Map')
 })

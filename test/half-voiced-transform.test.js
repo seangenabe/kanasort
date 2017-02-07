@@ -11,7 +11,7 @@ test('should transform ok by default', t => {
   let r = new HalfVoicedTransform()
   let x = new TransformedString('あがはばぱ', [r])
   t.is(x.value, 'あがはばは') // transformed hira PA -> HA
-  t.same(
+  t.deepEqual(
     x.items.map(tc => tc.weights.get(r)),
     [0, 0, 0, 0, 1]
   )

@@ -14,6 +14,6 @@ test('sort', t => {
   for (let i = 0; i < 20; i++) {
     let testItems = shuffle(items)
     kanasort(testItems)
-    t.same(items, testItems)
+    t.deepEqual(items, testItems)
   }
 })

@@ -11,7 +11,7 @@ test('should transform ok by default', t => {
   let r = new SmallToBigTransform()
   let x = new TransformedString('ぁっaァ', [r])
   t.is(x.value, 'あつaア')
-  t.same(
+  t.deepEqual(
     x.items.map(tc => tc.weights.get(r)),
     [-1, -1, 0, -1]
   )
