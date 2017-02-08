@@ -32,7 +32,7 @@ test('iterator and transformation order', t => {
   let i = str[Symbol.iterator]()
 
   // iteration *not run yet*
-  t.same(str.items, [])
+  t.deepEqual(str.items, [])
 
   // iteration 0
   let iteration

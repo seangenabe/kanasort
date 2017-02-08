@@ -17,11 +17,6 @@ test('compare', t => {
   t.is(result, 1)
 })
 
-test('static properties', t => {
-  t.truthy( Sorter.default === 'function')
-  t.truthy(Sorter.defaultTransforms === Sorter.defaultTransforms)
-})
-
 // Sorting tests
 // =============
 
@@ -31,7 +26,7 @@ test('compare voiced forms', t => {
   for (let i = 0; i < 20; i++) {
     let testItems = shuffle(items)
     testItems.sort(Sorter.prototype.compare.bind(sorter))
-    t.same(testItems, items)
+    t.deepEqual(testItems, items)
   }
 })
 
@@ -41,7 +36,7 @@ test('compare kana-related symbols', t => {
   for (let i = 0; i < 20; i++) {
     let testItems = shuffle(items)
     testItems.sort(Sorter.prototype.compare.bind(sorter))
-    t.same(testItems, items)
+    t.deepEqual(testItems, items)
   }
 })
 
@@ -51,7 +46,7 @@ test('compare hiragana < katakana', t => {
   for (let i = 0; i < 20; i++) {
     let testItems = shuffle(items)
     testItems.sort(Sorter.prototype.compare.bind(sorter))
-    t.same(testItems, items)
+    t.deepEqual(testItems, items)
   }
 })
 
@@ -62,6 +57,7 @@ test('compare all the things', t => {
   for (let i = 0; i < 20; i++) {
     let testItems = shuffle(items)
     testItems.sort(Sorter.prototype.compare.bind(sorter))
-    t.same(testItems, items)
+    t.deepEqual(testItems, items)
   }
 })
+*/
