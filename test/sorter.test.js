@@ -60,4 +60,3 @@ test('compare all the things', t => {
     t.deepEqual(testItems, items)
   }
 })
-*/
