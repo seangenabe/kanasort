@@ -1,5 +1,7 @@
 # kanasort
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/seangenabe/kanasort.svg)](https://greenkeeper.io/)
+
 Sort Japanese text.
 
 [![npm](https://img.shields.io/npm/v/kanasort.svg?style=flat-square)](https://www.npmjs.com/package/kanasort)
